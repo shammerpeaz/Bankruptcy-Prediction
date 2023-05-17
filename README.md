@@ -4,7 +4,7 @@ For this project, I used the data set Bankruptcy.jmp, provided in the text, Data
 
 The data set (included file - “Bankruptcy data with PCs”) consists of financial vital signs of bankrupt and healthy companies, as represented by twenty-four ratios from each company's annual report. Sixty-six bankrupt companies were matched with companies with similar traits and industry, for a total of 132 observations.  
 
-The goal of the study was to identify whether there are particular financial signs of company health, and whether bankruptcy can be predicted. For this project, my goal was to determine what model(s) could predict bankruptcy with the lowest error rate, and to identify what variable(s) contribute most to the process. 
+The goal of the study was to identify whether there are particular financial signs of company health, and whether bankruptcy can be predicted. For this project, my goal was to determine what model(s) could predict bankruptcy with the lowest error rate on the validation set, and to identify what variable(s) contribute most to the process. 
 
 In the process of examining the distributions of the data, two traits were noted. First, there were several potential outliers within almost all of the variables. I used Cluster Analysis (included file - “Clustering with outliers on Bankruptcy data”) to determine whether there were some observations that were so extreme that their removal should be considered. Two observations, 44 and 100, formed their own clusters during the analysis. Therefore, I removed them for the remaining process. 
 
