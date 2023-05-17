@@ -1,0 +1,17 @@
+# Bankruptcy-Prediction
+
+For this project, I used the data set Bankruptcy.jmp, provided in the text, Data Mining for Business Analytics by Galit Shmueli, Peter C. Bruce, Mia L. Stephens, and Nitin R. Patel. The data comes from a case prepared by Professors Mark E. Haskins and Phillip E. Pfeifer. 
+
+The data set (included file - “Bankruptcy data with PCs”) consists of financial vital signs of bankrupt and healthy companies, as represented by twenty-four ratios from each company's annual report. Sixty-six bankrupt companies were matched with companies with similar traits and industry, for a total of 132 observations.  
+
+The goal of the study was to identify whether there are particular financial signs of company health, and whether bankruptcy can be predicted. For this project, my goal was to determine what model(s) could predict bankruptcy with the lowest error rate, and to identify what variable(s) contribute most to the process. 
+
+In the process of examining the distributions of the data, two traits were noted. First, there were several potential outliers within almost all of the variables. I used Cluster Analysis (included file - “Clustering with outliers on Bankruptcy data”) to determine whether there were some observations that were so extreme that their removal should be considered. Two observations, 44 and 100, formed their own clusters during the analysis. Therefore, I removed them for the remaining process. 
+
+Secondly, I noted that the scales of the ratios were quite varied. In addition, multicollinearity between the predictors was very high, which is not surprising since the variables are ratios calculated with many of the same measures. For this reason, I conducted a Principal Component Analysis (included file - “Principal Components_outliers removed”) to reduce the amount of variables. This was conducted using the correlation matrix to normalize the data. PCA revealed that five principal components would sufficiently represent 78.5% of the variability of the data, and so these five were used in model building and selection. To confirm removing the outliers had a positive effect, I also conducted PCA with the outliers included. This reduced the cumulative variability of five principal components to 77.7%. 
+
+Several classification models were explored, and error rates noted for comparison purposes. K-NN, Naive Bayes, and Discriminant Analysis all ended up with an error rate of at least 25%. The two models with the lowest misclassification rates were Logistic Regression(19%) and Neural Net (15% - using one hidden layer and a learning rate of 0.1). (Included files - “Bankruptcy data_Neural Net” and “Logistic Regression using Principal Components”)
+
+I then moved to exploring what predictors might be of interest. The Logistic Regression model revealed PCs 1, 2, and 5 as particularly significant to the model. I examined the eigenvectors to determine what variables showed over 30% in weight – R1, R2, R3, R4, R5, R6, R9, R10, R11, R12, R19, and R20 met this criteria. Of these variables, R3, R4, R5, R9, R10, R11, and R12 are included in the most significant Principal Components. 
+
+Based on the descriptions in the text, these variables are related to cash reservoirs in which to pay debts, the assets a company has in which to pay debts, and the debt structure of a company. This would indicate that variables involving the debts of a company might be the most significant predictor of whether a company could face bankruptcy in the near future. 
